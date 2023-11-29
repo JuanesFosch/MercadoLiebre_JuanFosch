@@ -11,15 +11,17 @@
 //console.log("Prueba npm");
 // Correr con npm test
 
-const path= require("path")
+const path= require("path");
 
-const express= require("express")
+const express= require("express");
 
 const app= express();
 
-app.listen(8000, () => console.log("Servidor corriendo en: http://localhost:8000/"));
+const port= process.env.port || 8000;
 
-app.use(express.static('public'))
+app.listen(port, () => console.log(`Servidor corriendo en: ${port}`));
+
+app.use(express.static('public'));
 
 console.log("el dirname es: ",__dirname);
 
